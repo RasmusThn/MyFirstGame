@@ -20,7 +20,8 @@ namespace First
         }
         public override string ToString()
         {
-            return $"Class: Warrior | Health: {Health} | Rage: {Rage} \n\n AttackPower: {AttackPower} | Level: {Level} | Experience: {Experience}/{ExpReqPerLvl}";
+            return $"Class: Warrior | Health: {Health} | Rage: {Rage} \n\n AttackPower: {AttackPower}" +
+                $" | Level: {Level} | Experience: {Experience}/{ExpReqPerLvl}";
         }
     }
 }

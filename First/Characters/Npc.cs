@@ -20,8 +20,12 @@ namespace First.Characters
                 this.Name = GenerateName();
             }            
     }
-        private int GenerateAttack(int lvl)
-        {            
+        public override string ToString()
+        {
+            return $"Name: {Name} | Health: {Health} | Level: {Level} ";
+        }
+        public static int GenerateAttack(int lvl)
+        {               
             Random random = new Random();
             return random.Next(1, lvl + 10);
         }

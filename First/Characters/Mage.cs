@@ -20,7 +20,8 @@ namespace First.Characters
         }
         public override string ToString()
         {
-            return $"Class: Mage | Health: {Health} | Mana: {Mana} | SpellPower: {SpellPower} | Level: {Level} | Experience: {Experience}/{ExpReqPerLvl}";
+            return $"Class: Mage | Health: {Health} | Mana: {Mana} | SpellPower: {SpellPower} " +
+                $"| Level: {Level} | Experience: {Experience}/{ExpReqPerLvl}";
         }
     }
 }

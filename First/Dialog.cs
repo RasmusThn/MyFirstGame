@@ -29,6 +29,7 @@ namespace First
             Console.ReadKey();
             AnsiConsole.MarkupLine($"[DarkCyan]A Wild [red]{enemy.Name}[/] charges towards {userChar.Name}[/]");
             Console.ReadKey();
+            Combat.CombatScene(userChar, enemy);
         }
         public static void ChoosenChar(Character userChar)
         {
