@@ -25,6 +25,7 @@ namespace First
                 Console.ReadKey();
                 Console.WriteLine("You start to search the room before leaving...");
                 Items.SearchRoom(userChar);
+                DataFiles.DataHandler.SaveToFile();//Sparar till fil här
                 Dialog.WinningDialog(userChar);
             }
             else

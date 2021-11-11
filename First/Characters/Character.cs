@@ -22,7 +22,7 @@ namespace First
         public int MaxSpecialEnergy { get; set; }
         public int SpecialPower { get; set; }
         public int RoomsCleared { get; set; }
-
+        public string Class { get; set; }
         public Character()
         {
 
@@ -36,15 +36,16 @@ namespace First
             this.Experience = 0;
             this.ExpReqPerLvl = 100;
             this.RoomsCleared = 0;
-            for (int i = 0; i < CharList.ListOfChars.Count; i++)
-            {
-                if (CharList.ListOfChars[i].Name == null)
-                {
-                    CharList.ListOfChars.Insert(i, this);
-                    break;
-                }
+            //for (int i = 0; i < CharList.ListOfChars.Count; i++)
+            //{
+            //    if (CharList.ListOfChars[i].Name == null)
+            //    {
+            //        CharList.ListOfChars.Insert(i, this);
+            //        break;
+            //    }
 
-            }
+            //}
+            CharList.ListOfChars.Add(this);
 
         }
 

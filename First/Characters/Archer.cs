@@ -8,9 +8,14 @@ namespace First.Characters
 {
     class Archer : Character
     {
+        public Archer()
+        {
+
+        }
         
         public Archer(string aName): base(aName)
         {
+            this.Class = "Archer";
             this.Health = 80;
             this.MaxHealth = 80;
             this.SpecialEnergy = 75;

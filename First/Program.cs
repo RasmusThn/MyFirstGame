@@ -11,6 +11,7 @@ namespace First
         static void Main(string[] args)
         {
             CharList charList1 = new(); //intialzie
+            DataFiles.DataHandler.LoadFromFile();
             Menu.ShowMenu();
             
             

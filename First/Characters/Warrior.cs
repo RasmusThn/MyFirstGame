@@ -7,10 +7,14 @@ using System.Threading.Tasks;
 namespace First
 {
     class Warrior : Character
-    {        
-        
+    {
+        public Warrior()
+        {
+
+        }
         public Warrior(string aName):base (aName)
         {
+            this.Class = "Warrior";
             this.Health = 100;
             this.MaxHealth = 100;
             this.SpecialEnergy = 50;

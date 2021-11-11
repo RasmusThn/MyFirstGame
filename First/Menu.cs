@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace First
 {
     class Menu
@@ -29,7 +30,7 @@ namespace First
                     case "[steelblue1]New Character[/]":
                         {
                             Character userChar = CreateCharacter();
-
+                            DataFiles.DataHandler.SaveToFile();
                         }
                         break;
                     case "[yellow]Choose Character[/]":

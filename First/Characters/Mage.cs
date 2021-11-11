@@ -7,9 +7,14 @@ using System.Threading.Tasks;
 namespace First.Characters
 {
     class Mage : Character
-    {     
+    {
+        public Mage()
+        {
+
+        }
         public Mage(string aName): base(aName)
         {
+            this.Class = "Mage";
             this.Health = 60;
             this.MaxHealth = 60;
             this.SpecialEnergy = 100;

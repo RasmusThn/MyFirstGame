@@ -1,0 +1,18 @@
+[
+  
+  {
+    "ItemsList": [],
+    "Name": "Rasmus1",
+    "Health": 100,
+    "MaxHealth": 100,
+    "NormalAttack": 4,
+    "Level": 1,
+    "Experience": 0,
+    "ExpReqPerLvl": 100,
+    "SpecialEnergy": 50,
+    "MaxSpecialEnergy": 50,
+    "SpecialPower": 6,
+    "RoomsCleared": 0,
+    "Class": "Warrior"
+  }
+]

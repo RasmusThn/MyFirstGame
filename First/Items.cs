@@ -24,9 +24,12 @@ namespace First
             Apple = 10,
 
         }
-        public static void ShowBag()
+        public static void ShowBag(Character userChar)
         {
-
+            foreach (DropItems item in userChar.ItemsList)
+            {
+                AnsiConsole.MarkupLine($"[green]{item}[/]");
+            }
         }
         public static void SearchRoom(Character userChar)
         {
