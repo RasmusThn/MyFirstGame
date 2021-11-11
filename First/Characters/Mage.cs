@@ -7,21 +7,45 @@ using System.Threading.Tasks;
 namespace First.Characters
 {
     class Mage : Character
-    {
-        public int Mana { get; set; }
-        public int SpellPower { get; set; }
-
+    {     
         public Mage(string aName): base(aName)
         {
-            this.Health = 50;          
-            this.Mana = 100;
-            this.SpellPower = 10;
+            this.Health = 60;
+            this.MaxHealth = 60;
+            this.SpecialEnergy = 100;
+            this.MaxSpecialEnergy = 100;
+            this.SpecialPower = 10;
+            this.NormalAttack = 2;
             
         }
         public override string ToString()
         {
-            return $"Class: Mage | Health: {Health} | Mana: {Mana} | SpellPower: {SpellPower} " +
+            return $"{Name}:  Class: Mage | Health: {Health} | Mana: {SpecialEnergy} | SpellPower: {SpecialPower} " +
                 $"| Level: {Level} | Experience: {Experience}/{ExpReqPerLvl}";
+        }
+        public override void LevelUp(Character userChar)
+        {
+            base.LevelUp(userChar);
+            userChar.MaxHealth += 10;
+            userChar.Health = userChar.MaxHealth;
+            userChar.MaxSpecialEnergy += 20;
+            userChar.SpecialEnergy = userChar.MaxSpecialEnergy;
+            userChar.SpecialPower += SpecialPower / 2;
+            userChar.NormalAttack += NormalAttack / 2;
+        }
+        public override int SpecialAttackMethod(Character userChar)
+        {
+            if (userChar.SpecialEnergy > 10)
+            {
+                userChar.SpecialEnergy -= 10;
+
+                return base.SpecialAttackMethod(userChar);
+            }
+            else
+            {
+                Console.WriteLine("You are out of Mana, 1 SpecialAttack cost 10 Mana");
+                return 0;
+            }
         }
     }
 }

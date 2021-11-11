@@ -22,7 +22,7 @@ namespace First.Characters
     }
         public override string ToString()
         {
-            return $"Name: {Name} | Health: {Health} | Level: {Level} ";
+            return $"Name: {Name} | Health: {Health} | Level: {Level} | AttackPower: {NormalAttack}";
         }
         public static int GenerateAttack(int lvl)
         {               
@@ -32,12 +32,12 @@ namespace First.Characters
         private int GenerateLvl(int lvl)
         {
             Random random = new Random();
-           return random.Next(1, lvl + 1);
+           return random.Next(1, lvl);
         }
         private int GenerateHealth(int lvl)
         {
             Random random = new Random();
-            return random.Next(10, lvl + 50);
+            return random.Next(10, lvl * 11);
         }
         private string GenerateName()
         {

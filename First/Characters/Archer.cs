@@ -8,21 +8,47 @@ namespace First.Characters
 {
     class Archer : Character
     {
-        public int Focus { get; set; }
-        public int RangedAttackPower { get; set; }
-
-
+        
         public Archer(string aName): base(aName)
         {
-            
-            this.NormalAttack = 5;
-            this.Focus = 80;
             this.Health = 80;
+            this.MaxHealth = 80;
+            this.SpecialEnergy = 75;
+            this.MaxSpecialEnergy = 75;
+            this.SpecialPower = 7;
+            this.NormalAttack = 3;
+            
+            
             
         }
         public override string ToString()
         {
-            return $"Class: Archer | Health: {Health} | Focus: {Focus} | RangedAttackPower: {RangedAttackPower} | Level: {Level} | Experience: {Experience}/{ExpReqPerLvl}";
+            return $"Class: Archer | Health: {Health} | Focus: {SpecialEnergy} | RangedAttackPower: {SpecialPower}" +
+                $" | Level: {Level} | Experience: {Experience}/{ExpReqPerLvl}";
+        }
+        public override void LevelUp(Character userChar)
+        {
+            base.LevelUp(userChar);
+            userChar.MaxHealth += 15;
+            userChar.Health = userChar.MaxHealth;
+            userChar.MaxSpecialEnergy += 15;
+            userChar.SpecialEnergy = userChar.MaxSpecialEnergy;
+            userChar.SpecialPower += SpecialPower / 2;
+            userChar.NormalAttack += NormalAttack / 2;
+        }
+        public override int SpecialAttackMethod(Character userChar)
+        {
+            if (userChar.SpecialEnergy > 10)
+            {
+                userChar.SpecialEnergy -= 10;
+
+                return base.SpecialAttackMethod(userChar);
+            }
+            else
+            {
+                Console.WriteLine("You are out of Focus, 1 SpecialAttack cost 10 Focus");
+                return 0;
+            }
         }
     }
 }

@@ -13,13 +13,23 @@ namespace First
         {
             while (userChar.Health > 0 && npc.Health > 0)
             {
-                Console.WriteLine(npc);
-                Console.WriteLine(userChar);
+                AnsiConsole.MarkupLine($"[plum4]{npc}[/]");
+                AnsiConsole.MarkupLine($"[steelblue1]{userChar}[/]");
                 CombatMenu(userChar, npc);
             }
             if (npc.Health <= 0)
             {
-                userChar.Experience += (npc.Level * 5);
+                Console.WriteLine(npc.Name + " has been defteated!");
+                userChar.IncreaseExp(userChar, npc);              
+                userChar.RoomsCleared++;
+                Console.ReadKey();
+                Console.WriteLine("You start to search the room before leaving...");
+                Items.SearchRoom(userChar);
+                Dialog.WinningDialog(userChar);
+            }
+            else
+            {
+                Dialog.LosingDialog(userChar);
             }
         }
         private static void CombatMenu(Character userChar, Character npc)
@@ -34,24 +44,32 @@ namespace First
                 case "[green]Normal Attack[/]":
                     {
                         int dmg = Character.NormalAttackMethod(userChar);
-                        Console.WriteLine($"{userChar.Name} uses Normal Attack on {npc.Name} causing {dmg} damage ");
+                        AnsiConsole.MarkupLine($"[steelblue1]{userChar.Name}[/] uses [green]Normal Attack[/] on [plum4]{npc.Name}[/] causing [red]{dmg} damage[/] ");
                         npc.Health -= dmg;
                         Console.ReadKey();
-                        Console.WriteLine($"{npc.Name} Strikes back on {userChar.Name} causing {npc.NormalAttack} damage ");
-                        userChar.Health -= npc.NormalAttack;
-                        Console.ReadKey();
+                        if (npc.Health > 0)
+                        {
+                            dmg = Character.NormalAttackMethod(npc);
+                            AnsiConsole.MarkupLine($"[plum4]{npc.Name}[/] Strikes back on [steelblue1]{userChar.Name}[/] causing [red]{dmg} damage[/] ");
+                            userChar.Health -= dmg;
+                            Console.ReadKey();
+                        }
                     }
                     break;
                 case "[yellow]Special Attack[/]":
                     {
-                        int dmg = Character.SpecialAttackMethod(userChar);
-                        Console.WriteLine($"{userChar.Name} uses Special Attack on {npc.Name} causing {dmg} damage ");
+                        int dmg = userChar.SpecialAttackMethod(userChar);
+                        AnsiConsole.MarkupLine($"[steelblue1]{userChar.Name}[/] uses [yellow]Special Attack[/] on [plum4]{npc.Name}[/] causing [red]{dmg} damage[/] ");
                         npc.Health -= dmg;
-                        //userChar.SpecialMana -= userChar.Drain;
+                        
                         Console.ReadKey();
-                        Console.WriteLine($"{npc.Name} Strikes back on {userChar.Name} causing {npc.NormalAttack} damage ");
-                        userChar.Health -= npc.NormalAttack;
-                        Console.ReadKey();
+                        if (npc.Health > 0)
+                        {
+                            dmg = Character.NormalAttackMethod(npc);
+                            AnsiConsole.MarkupLine($"[plum4]{npc.Name}[/] Strikes back on [steelblue1]{userChar.Name}[/] causing [red]{dmg} damage[/]");
+                            userChar.Health -= dmg;
+                            Console.ReadKey();
+                        }
                     }
                     break;
                 case "[orange4_1]Run Away[/]":

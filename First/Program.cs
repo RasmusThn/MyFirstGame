@@ -12,9 +12,9 @@ namespace First
         {
             CharList charList1 = new(); //intialzie
             Menu.ShowMenu();
-            //Character userChar = CreateCharacter();
             
-           // Dialog.StartingDialog(userChar);
+            
+           
            
 
 

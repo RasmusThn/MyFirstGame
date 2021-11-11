@@ -7,21 +7,47 @@ using System.Threading.Tasks;
 namespace First
 {
     class Warrior : Character
-    {
-        public int Rage { get; set; }
-        public int AttackPower { get; set; }
-
+    {        
+        
         public Warrior(string aName):base (aName)
         {
             this.Health = 100;
-            //this.Level = 1;
-            this.Rage = 50;
-            this.AttackPower = 5; 
+            this.MaxHealth = 100;
+            this.SpecialEnergy = 50;
+            this.MaxSpecialEnergy = 50;
+            this.SpecialPower = 6;
+            this.NormalAttack = 4;
         }
         public override string ToString()
         {
-            return $"Class: Warrior | Health: {Health} | Rage: {Rage} \n\n AttackPower: {AttackPower}" +
-                $" | Level: {Level} | Experience: {Experience}/{ExpReqPerLvl}";
+            return $"{Name}:  Level: {Level} | Health: {Health} | Rage: {SpecialEnergy} | AttackPower: {SpecialPower}" +
+                $" | Experience: {Experience}/{ExpReqPerLvl}";
+        }
+
+        public override void LevelUp(Character userChar)
+        {
+            base.LevelUp(userChar);
+            userChar.MaxHealth += 20;
+            userChar.Health = userChar.MaxHealth;
+            userChar.MaxSpecialEnergy += 10;
+            userChar.SpecialEnergy = userChar.MaxSpecialEnergy;
+            userChar.SpecialPower += SpecialPower / 2;
+            userChar.NormalAttack += NormalAttack / 2;
+
+        }
+        public override int SpecialAttackMethod(Character userChar)
+        {
+            if (userChar.SpecialEnergy > 10)
+            {
+                userChar.SpecialEnergy -= 10;
+
+                return base.SpecialAttackMethod(userChar);
+            }
+            else
+            {
+                Console.WriteLine("You are out of Rage, 1 SpecialAttack cost 10 Rage");
+                return 0;
+            }
         }
     }
 }

@@ -1,46 +1,62 @@
-﻿using First.Characters;
+﻿using Spectre.Console;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static First.Items;
 
 namespace First
 {
     class Character
     {
+        public List<DropItems> ItemsList;
         public string Name { get; set; }
         public int Health { get; set; }
+        public int MaxHealth { get; set; }
         public int NormalAttack { get; set; }
         public int Level { get; set; }
         public int Experience { get; set; }
         public int ExpReqPerLvl { get; set; }
-        
-
-        //public static List<Character> charList = new(5);
+        public int SpecialEnergy { get; set; }
+        public int MaxSpecialEnergy { get; set; }
+        public int SpecialPower { get; set; }
+        public int RoomsCleared { get; set; }
 
         public Character()
         {
-            
+
         }
 
         public Character(string aName)
         {
+            this.ItemsList = new List<DropItems>();
             this.Name = aName;
             this.Level = 1;
             this.Experience = 0;
             this.ExpReqPerLvl = 100;
-            this.NormalAttack = 5;
+            this.RoomsCleared = 0;
             for (int i = 0; i < CharList.ListOfChars.Count; i++)
             {
                 if (CharList.ListOfChars[i].Name == null)
                 {
                     CharList.ListOfChars.Insert(i, this);
                     break;
-                }             
-                
+                }
+
             }
-            
+
+        }
+
+        internal static int NormalAttackMethod(Character userChar)
+        {
+            Random random = new Random();
+            return random.Next(userChar.NormalAttack - 3, userChar.NormalAttack);
+        }
+        public virtual int SpecialAttackMethod(Character userChar)
+        {
+            Random rand = new Random();
+            return rand.Next(userChar.SpecialPower - 3, userChar.SpecialPower + 5);
         }
         public static Character FromNameToObject(string name)
         {
@@ -48,35 +64,26 @@ namespace First
 
             return characters[0];
         }
-        public static int NormalAttackMethod(Character character)
-        {
-            Random random = new Random();
-            return random.Next(character.NormalAttack - 2, character.NormalAttack + 2);
-            
-        }
-        public static int SpecialAttackMethod(Character character)
-        {
-            Random rand = new Random();
-            return rand.Next(5, 10);
-        }
 
-        public static int SpecialAttackMethod(Mage mage)
+        public void IncreaseExp(Character userChar, Character npc)
         {
-            mage.Mana -= 20;
-            Random rand = new Random();
-            return rand.Next(mage.SpellPower - 5, mage.SpellPower + 5);
+            int increase = (npc.Level * 2) + 25;
+            userChar.Experience += increase;
+            Console.WriteLine($"You gained {increase} Experience");
+            if (userChar.Experience >= ExpReqPerLvl)
+            {
+                LevelUp(userChar);
+            }
+
         }
-        public static int SpecialAttackMethod(Warrior warrior)
+        public virtual void LevelUp(Character userChar)
         {
-            warrior.Rage -= 10;
-            Random rand = new Random();
-            return rand.Next(warrior.AttackPower - 5, warrior.AttackPower + 5);
-        }
-        public static int SpecialAttackMethod(Archer archer)
-        {
-            archer.RangedAttackPower -= 10;
-            Random rand = new Random();
-            return rand.Next(archer.RangedAttackPower - 5, archer.RangedAttackPower + 5);
+            userChar.Experience -= Experience;
+            userChar.Level += 1;
+            userChar.ExpReqPerLvl += 25;
+
+            AnsiConsole.MarkupLine($"[Green]Hurray [steelblue1]{userChar.Name}[/] you just reached level[/][steelblue1] {userChar.Level}[/]");
+
         }
     }
 }
