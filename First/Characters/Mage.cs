@@ -23,6 +23,12 @@ namespace First.Characters
             this.NormalAttack = 2;
             
         }
+
+        public Mage(Character character):base(character)
+        {
+            
+        }
+
         public override string ToString()
         {
             return $"{Name}:  Class: Mage | Health: {Health} | Mana: {SpecialEnergy} | SpellPower: {SpecialPower} " +

@@ -1,18 +1,1 @@
-[
-  
-  {
-    "ItemsList": [],
-    "Name": "Rasmus1",
-    "Health": 100,
-    "MaxHealth": 100,
-    "NormalAttack": 4,
-    "Level": 1,
-    "Experience": 0,
-    "ExpReqPerLvl": 100,
-    "SpecialEnergy": 50,
-    "MaxSpecialEnergy": 50,
-    "SpecialPower": 6,
-    "RoomsCleared": 0,
-    "Class": "Warrior"
-  }
-]
+[{"ItemsList":[6,9,1],"Name":"Rasmus","Health":106,"MaxHealth":100,"NormalAttack":4,"Level":1,"Experience":81,"ExpReqPerLvl":100,"SpecialEnergy":10,"MaxSpecialEnergy":50,"SpecialPower":6,"RoomsCleared":3,"Class":"Warrior"},{"ItemsList":[],"Name":"Ralle","Health":60,"MaxHealth":60,"NormalAttack":2,"Level":1,"Experience":0,"ExpReqPerLvl":100,"SpecialEnergy":100,"MaxSpecialEnergy":100,"SpecialPower":10,"RoomsCleared":0,"Class":"Mage"},{"ItemsList":null,"Name":null,"Health":0,"MaxHealth":0,"NormalAttack":0,"Level":0,"Experience":0,"ExpReqPerLvl":0,"SpecialEnergy":0,"MaxSpecialEnergy":0,"SpecialPower":0,"RoomsCleared":0,"Class":null},{"ItemsList":null,"Name":null,"Health":0,"MaxHealth":0,"NormalAttack":0,"Level":0,"Experience":0,"ExpReqPerLvl":0,"SpecialEnergy":0,"MaxSpecialEnergy":0,"SpecialPower":0,"RoomsCleared":0,"Class":null},{"ItemsList":null,"Name":null,"Health":0,"MaxHealth":0,"NormalAttack":0,"Level":0,"Experience":0,"ExpReqPerLvl":0,"SpecialEnergy":0,"MaxSpecialEnergy":0,"SpecialPower":0,"RoomsCleared":0,"Class":null}]

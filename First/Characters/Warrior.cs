@@ -22,6 +22,13 @@ namespace First
             this.SpecialPower = 6;
             this.NormalAttack = 4;
         }
+
+        public Warrior(Character character):base(character)
+        {
+           
+            
+        }
+
         public override string ToString()
         {
             return $"{Name}:  Level: {Level} | Health: {Health} | Rage: {SpecialEnergy} | AttackPower: {SpecialPower}" +
@@ -31,9 +38,9 @@ namespace First
         public override void LevelUp(Character userChar)
         {
             base.LevelUp(userChar);
-            userChar.MaxHealth += 20;
+            userChar.MaxHealth += userChar.Level + 20;
             userChar.Health = userChar.MaxHealth;
-            userChar.MaxSpecialEnergy += 10;
+            userChar.MaxSpecialEnergy += userChar.Level + 10;
             userChar.SpecialEnergy = userChar.MaxSpecialEnergy;
             userChar.SpecialPower += SpecialPower / 2;
             userChar.NormalAttack += NormalAttack / 2;

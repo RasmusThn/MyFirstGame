@@ -26,6 +26,12 @@ namespace First.Characters
             
             
         }
+
+        public Archer(Character character):base(character)
+        {
+           
+        }
+
         public override string ToString()
         {
             return $"Class: Archer | Health: {Health} | Focus: {SpecialEnergy} | RangedAttackPower: {SpecialPower}" +

@@ -28,20 +28,20 @@ namespace First.DataFiles
             {
                 if (character.Class == "Warrior")
                 {
-                    new Warrior();
+                     new Warrior(character);
                 }
                 //CharList.ListOfChars.Insert(x,character);
                 else if (character.Class == "Mage")
                 {
-                    new Mage();
+                    new Mage(character);
                 }
                 else if (character.Class == "Archer")
                 {
-                    new Archer();
+                    new Archer(character);
                 }
                 else
                 {
-                    new Character();
+                    new Character(character);
                 }
                 x++;
             }

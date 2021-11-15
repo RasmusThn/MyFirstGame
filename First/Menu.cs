@@ -43,7 +43,7 @@ namespace First
 
                         }
                         break;
-                    case "[red]Exit Game[/]": break;
+                    case "[red]Exit Game[/]":Console.Clear(); break;
                     default:
                         break;
                 }
@@ -79,7 +79,7 @@ namespace First
 
                     }
                     break;
-                default:
+                default:        
                     break;
             }
 
@@ -107,7 +107,12 @@ namespace First
              .Title($"[green]Menu[/]")
              .AddChoices(new[] {name0,name1,name2,name3,name4
                    }));
-            if (charChoice == name0)
+            if (charChoice == "Empty")
+            {
+                Console.WriteLine("You can't choose an empty char, choose again or create a new one");
+                Console.ReadKey();
+            }
+            else if (charChoice == name0)
             {
                 Character userChar = Character.FromNameToObject(name0);
                 Dialog.ChoosenChar(userChar);
