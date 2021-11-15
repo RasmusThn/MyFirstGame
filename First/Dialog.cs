@@ -58,6 +58,7 @@ namespace First
                         break;
                     case "[yellow]Bag[/]":
                         {
+                            
                             Items.ShowBag(userChar);
                         }
                         break;
@@ -107,7 +108,14 @@ namespace First
             {
                 case "[green]Start Game[/]":
                     {
-                        StartingDialog(userChar);
+                        if (userChar.RoomsCleared == 0)
+                        {
+                            StartingDialog(userChar);
+                        }
+                        else
+                        {
+                            NextRoom(userChar);
+                        }
                     }
                     break;
                 case "[yellow]Choose Another Character[/]":

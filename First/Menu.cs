@@ -29,7 +29,7 @@ namespace First
                 {
                     case "[steelblue1]New Character[/]":
                         {
-                            Character userChar = CreateCharacter();
+                            CreateCharacter();
                             DataFiles.DataHandler.SaveToFile();
                         }
                         break;
@@ -49,7 +49,7 @@ namespace First
                 }
             } while (menuChoice != "[red]Exit Game[/]");
         }
-        public static Character CreateCharacter()
+        public static void CreateCharacter()
         {
             string name = AnsiConsole.Ask<string>("[green]Enter your name:[/]");
             Console.Clear();
@@ -58,24 +58,24 @@ namespace First
                 .AddChoices(new[] {"[red]Warrior[/]", "[yellow]Archer[/]", "[green]Mage[/]"
 
                 }));
-            Character character = new();
+            //Character character = new();
             switch (charChoice)
             {
                 case "[red]Warrior[/]":
                     {
-                        character = new Warrior(name);
+                        new Warrior(name);
 
                     }
                     break;
                 case "[yellow]Archer[/]":
                     {
-                        character = new Archer(name);
+                          new Archer(name);
 
                     }
                     break;
                 case "[green]Mage[/]":
                     {
-                        character = new Mage(name);
+                         new Mage(name);
 
                     }
                     break;
@@ -83,7 +83,7 @@ namespace First
                     break;
             }
 
-            return character;
+            //return character;
         }
         public static string DisplayCharacterList(int index)
         {

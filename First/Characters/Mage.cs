@@ -46,7 +46,7 @@ namespace First.Characters
         }
         public override int SpecialAttackMethod(Character userChar)
         {
-            if (userChar.SpecialEnergy > 10)
+            if (userChar.SpecialEnergy > 11)
             {
                 userChar.SpecialEnergy -= 10;
 

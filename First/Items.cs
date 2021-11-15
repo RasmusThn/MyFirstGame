@@ -26,9 +26,10 @@ namespace First
         }
         public static void ShowBag(Character userChar)
         {
+            int x = 0;
             foreach (DropItems item in userChar.ItemsList)
             {
-                AnsiConsole.MarkupLine($"[green]{item}[/]");
+                AnsiConsole.MarkupLine($"{x + 1}[green]{item}[/]");
             }
         }
         public static void SearchRoom(Character userChar)
@@ -37,7 +38,7 @@ namespace First
             Random rand = new Random();
             int randNum = rand.Next(1,10);
             DropItems dropItems = (DropItems)randNum;
-            AnsiConsole.MarkupLine($"You found a [green]{dropItems}[/]");
+            AnsiConsole.MarkupLine($"You found [green]{dropItems}[/]");
             userChar.ItemsList.Add(dropItems);
         }
     }
