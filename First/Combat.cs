@@ -13,17 +13,17 @@ namespace First
         {
             while (userChar.Health > 0 && npc.Health > 0)
             {
-                AnsiConsole.MarkupLine($"[plum4]{npc}[/]");
+                AnsiConsole.MarkupLine($"\n[plum4]{npc}[/]");
                 AnsiConsole.MarkupLine($"[steelblue1]{userChar}[/]");
                 CombatMenu(userChar, npc);
             }
             if (npc.Health <= 0)
             {
-                Console.WriteLine(npc.Name + " has been defteated!");
+                AnsiConsole.MarkupLine($"[plum4]{npc.Name}[/] has been [green]defteated![/]");
                 userChar.IncreaseExp(userChar, npc);
                 userChar.RoomsCleared++;
                 Console.ReadKey();
-                Console.WriteLine("You start searching the carcase of " + npc.Name);
+                AnsiConsole.MarkupLine($"You start searching the carcase of [plum4]{npc.Name}[/]");
                 Items.SearchRoom(userChar);
                 DataFiles.DataHandler.SaveToFile();//Sparar till fil här
                 Dialog.WinningDialog(userChar);
@@ -35,6 +35,7 @@ namespace First
         }
         private static void CombatMenu(Character userChar, Character npc)
         {
+            Console.WriteLine("\n");
             var menuChoice = AnsiConsole.Prompt(new SelectionPrompt<string>()
 
                   .AddChoices(new[] {"[green]Normal Attack[/]", "[yellow]Special Attack[/]",
@@ -83,7 +84,7 @@ namespace First
                     break;
                 case "[purple]Open Bag[/]":
                     {   Console.Clear();
-                        Items.ShowBag(userChar);
+                        Items.UsingItems(userChar);
                         AnsiConsole.Clear();
                     }break;
                 case "[orange4_1]Run Away[/]":

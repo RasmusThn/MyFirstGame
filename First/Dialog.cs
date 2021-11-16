@@ -81,7 +81,7 @@ namespace First
             AnsiConsole.MarkupLine($"[DarkCyan][steelblue1]{userChar.Name}[/] enters the room and the door slams behind.. [/]");
             Console.ReadKey();
             Npc enemy = new(userChar);
-            AnsiConsole.MarkupLine($"[DarkCyan]A Wild [plum4]{enemy.Name}[/] appears infront of [steelblue1]{userChar.Name}[/][/]");
+            AnsiConsole.MarkupLine($"[DarkCyan]A Wild [plum4]{enemy.Name}[/] appears infront of [steelblue1]{userChar.Name}[/][/]\n");
             Console.ReadKey();
             Combat.CombatScene(userChar, enemy);
 
@@ -101,7 +101,7 @@ namespace First
             //Console.Clear();
             var MenuChoice = AnsiConsole.Prompt(new SelectionPrompt<string>()
 
-                .AddChoices(new[] {"[green]Start Game[/]", "[yellow]Choose Another Character[/]", "[green]Return to Menu[/]"
+                .AddChoices(new[] {"[green]Start Game[/]", "[yellow]Choose Another Character[/]","[red]Delete Character[/]", "[green]Return to Menu[/]"
 
                 }));
             switch (MenuChoice)
@@ -114,13 +114,18 @@ namespace First
                         }
                         else
                         {
-                            NextRoom(userChar);
+                            NextRoomOrMenu(userChar);
                         }
                     }
                     break;
                 case "[yellow]Choose Another Character[/]":
                     {
                         Menu.MenuForCharList();
+                    }
+                    break;
+                case "[red]Delete Character[/]":
+                    {
+                        DeleteCharacter(userChar);
                     }
                     break;
                 case "[green]Return to Menu[/]":
@@ -132,10 +137,43 @@ namespace First
                     break;
             }
         }
+
+        private static void DeleteCharacter(Character userChar)
+        {
+            AnsiConsole.MarkupLine($"Are you sure that you would like to delete {userChar.Name} ?");
+            var menuChoice = AnsiConsole.Prompt(new SelectionPrompt<string>()
+
+                .AddChoices(new[] {"[red]Yes[/]","[green]No[/]"
+
+                }));
+            switch (menuChoice)
+            {
+                case "[red]Yes[/]":
+                    {
+                        CharList.ListOfChars.Remove(userChar);
+                        Character character = new Character();
+                        CharList.ListOfChars.Add(character);
+                        DataFiles.DataHandler.SaveToFile();
+                        Console.WriteLine("Character removed..");
+                        Console.ReadKey();
+                        Menu.ShowMenu();
+                    }break;
+                case "[green]No[/]":
+                    {
+                        StartGameOrMenu(userChar);
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+
         public static void WinningDialog(Character userChar)
         {
-            Console.WriteLine("Congratulations!");
+            Console.WriteLine();
+            AnsiConsole.MarkupLine($"[green]Congratulations![/]");
             Console.ReadKey();
+            Console.Clear();
             NextRoomOrMenu(userChar);
         }
         public static void LosingDialog(Character userChar)

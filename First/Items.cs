@@ -44,14 +44,14 @@ namespace First
         }
         public static void UsingItems(Character userChar)
         {
+            Console.Clear();
             Console.ForegroundColor = ConsoleColor.DarkCyan;
             Console.WriteLine($"You have {userChar.ItemsList.Count} items in your bag.");          
             ShowBag(userChar);
-            Console.ReadKey();
-            Console.Write($"Which item would you like to use: ");
-            int choice = int.Parse(Console.ReadLine());
-            
-
+            Console.Write($"Which item would you like to use(0 to return): ");
+            int choice = int.Parse(Console.ReadLine());//TODO: Try catch
+            Console.ResetColor();
+            if (choice == 0 ){ Console.Clear(); return;}
             if (userChar.ItemsList[choice-1] == DropItems.HealthPotion )
             {
                 Console.WriteLine("You drink a " + DropItems.HealthPotion.ToString());
@@ -88,7 +88,7 @@ namespace First
                 Console.WriteLine("Nothing Happens! Well what did you except?");
             }
             userChar.ItemsList.RemoveAt(choice - 1);
-            Console.ResetColor();
+            DataFiles.DataHandler.SaveToFile();
         }
     }
 }

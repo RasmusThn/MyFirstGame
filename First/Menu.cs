@@ -21,7 +21,7 @@ namespace First
                 AnsiConsole.Write(rule);               
                 menuChoice = AnsiConsole.Prompt(new SelectionPrompt<string>()
                    
-                   .AddChoices(new[] {"[steelblue1]New Character[/]", "[yellow]Choose Character[/]", "[orange4_1]Show Character Stats[/]", "[red]Exit Game[/]"
+                   .AddChoices(new[] {"[steelblue1]New Character[/]", "[yellow]Choose Character[/]", "[red]Exit Game[/]"
 
                    }));
 
@@ -38,12 +38,8 @@ namespace First
                             MenuForCharList();
                         }
                         break;
-                    case "[orange4_1]Show Character Stats[/]":
-                        {
-
-                        }
-                        break;
-                    case "[red]Exit Game[/]":Console.Clear(); break;
+                    
+                    case "[red]Exit Game[/]": Console.Clear(); break;
                     default:
                         break;
                 }
@@ -104,7 +100,7 @@ namespace First
             string name3 = DisplayCharacterList(3);
             string name4 = DisplayCharacterList(4);
             var charChoice = AnsiConsole.Prompt(new SelectionPrompt<string>()
-             .Title($"[green]Menu[/]")
+             
              .AddChoices(new[] {name0,name1,name2,name3,name4
                    }));
             if (charChoice == "Empty")
