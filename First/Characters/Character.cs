@@ -23,11 +23,11 @@ namespace First
         public int SpecialPower { get; set; }
         public int RoomsCleared { get; set; }
         public string Class { get; set; }
+        
         public Character()
         {
 
         }
-
         public Character(string aName)
         {
             this.ItemsList = new List<DropItems>();
@@ -48,8 +48,7 @@ namespace First
             }
             
 
-        }
-
+        }// Adds new chars..
         public Character(Character character)
         {
             this.Class = character.Class;
@@ -76,8 +75,7 @@ namespace First
                 }
 
             }
-        }
-
+        } //Adds chars from saved file
         internal static int NormalAttackMethod(Character userChar)
         {
             Random random = new Random();
@@ -94,7 +92,6 @@ namespace First
             //TODO: Lägg till if null
             return characters[0];
         }
-
         public void IncreaseExp(Character userChar, Character npc)
         {
             int increase = (npc.Level * 2) + 25;

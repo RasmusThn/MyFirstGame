@@ -23,7 +23,7 @@ namespace First.DataFiles
             string path = @"../../../DataFiles/SavedCharacters.json";
             string readJson = File.ReadAllText(path);
             List<Character> characters = JsonConvert.DeserializeObject<List<Character>>(readJson);
-            int x = 0;
+            
             foreach (Character character in characters)
             {
                 if (character.Class == "Warrior")
@@ -43,7 +43,7 @@ namespace First.DataFiles
                 {
                     new Character(character);
                 }
-                x++;
+                
             }
 
 

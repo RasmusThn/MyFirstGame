@@ -39,7 +39,7 @@ namespace First
             Random rand = new Random();
             int randNum = rand.Next(1,10);
             DropItems dropItems = (DropItems)randNum;
-            AnsiConsole.MarkupLine($"You found a [green]{dropItems}[/]");
+            AnsiConsole.MarkupLine($"You found [green]{dropItems}[/]");
             userChar.ItemsList.Add(dropItems);
         }
         public static void UsingItems(Character userChar)
