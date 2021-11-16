@@ -45,7 +45,7 @@ namespace First
         public static void UsingItems(Character userChar)
         {
             Console.ForegroundColor = ConsoleColor.DarkCyan;
-            Console.WriteLine($"You have {userChar.ItemsList.Count} in your bag.");          
+            Console.WriteLine($"You have {userChar.ItemsList.Count} items in your bag.");          
             ShowBag(userChar);
             Console.ReadKey();
             Console.Write($"Which item would you like to use: ");
