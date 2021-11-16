@@ -58,7 +58,8 @@ namespace First
                         break;
                     case "[yellow]Bag[/]":
                         {
-                            Items.ShowBag(userChar);
+                            //Items.ShowBag(userChar);
+                            Items.UsingItems(userChar);
                         }
                         break;
                     case "[green]Return to Menu[/]":

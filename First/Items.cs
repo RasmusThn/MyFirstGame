@@ -21,14 +21,16 @@ namespace First
             Dust = 7,
             Emptiness = 8,
             Air = 9,
-            Apple = 10,
+            Blood = 10,
 
         }
         public static void ShowBag(Character userChar)
         {
+            int x = 1;
             foreach (DropItems item in userChar.ItemsList)
             {
-                AnsiConsole.MarkupLine($"[green]{item}[/]");
+                AnsiConsole.MarkupLine($"{x}: [green]{item}[/]");
+                x++;
             }
         }
         public static void SearchRoom(Character userChar)
@@ -39,6 +41,54 @@ namespace First
             DropItems dropItems = (DropItems)randNum;
             AnsiConsole.MarkupLine($"You found a [green]{dropItems}[/]");
             userChar.ItemsList.Add(dropItems);
+        }
+        public static void UsingItems(Character userChar)
+        {
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.WriteLine($"You have {userChar.ItemsList.Count} in your bag.");          
+            ShowBag(userChar);
+            Console.ReadKey();
+            Console.Write($"Which item would you like to use: ");
+            int choice = int.Parse(Console.ReadLine());
+            
+
+            if (userChar.ItemsList[choice-1] == DropItems.HealthPotion )
+            {
+                Console.WriteLine("You drink a " + DropItems.HealthPotion.ToString());
+                Console.WriteLine("Your health increases with 50 ");
+                userChar.Health += 50;
+            }
+            else if (userChar.ItemsList[choice - 1] == DropItems.SpecialEnergyPotion)
+            {
+                Console.WriteLine("You drink a " + DropItems.SpecialEnergyPotion.ToString());
+                Console.WriteLine("Your Special Energy increases with 50 ");
+                userChar.SpecialEnergy += 50;
+            }
+            else if (userChar.ItemsList[choice -1] == DropItems.ExpPotion)
+            {
+                Console.WriteLine("You drink a " + DropItems.ExpPotion.ToString());
+                Console.WriteLine("Your Experience increases with 50 ");
+                userChar.Experience += 50;
+            }
+            else if (userChar.ItemsList[choice - 1] == DropItems.WeaponUpgrade)
+            {
+                Console.WriteLine("You use the " + DropItems.WeaponUpgrade.ToString());
+                Console.WriteLine("Increasing your attacking by 5");
+                userChar.SpecialPower += 3;
+                userChar.NormalAttack += 2;
+            }
+            else if (userChar.ItemsList[choice - 1] == DropItems.GearUpgrade)
+            {
+                Console.WriteLine("You use the " + DropItems.GearUpgrade.ToString());
+                Console.WriteLine("Increasing your health by 20");
+                userChar.Health += 20;
+            }
+            else
+            {
+                Console.WriteLine("Nothing Happens! Well what did you except?");
+            }
+            userChar.ItemsList.RemoveAt(choice - 1);
+            Console.ResetColor();
         }
     }
 }
