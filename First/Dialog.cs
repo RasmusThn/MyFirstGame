@@ -36,9 +36,11 @@ namespace First
             while (true)
             {
                 Console.Clear();
+                var rule = new Rule($"[steelblue1]{userChar.Name}[/]");
+                AnsiConsole.Write(rule);
 
                 var MenuChoice = AnsiConsole.Prompt(new SelectionPrompt<string>()
-
+                    
                     .AddChoices(new[] {"[green]Continue[/]", "[orange4_1]Show Stats[/]",
                     "[yellow]Bag[/]", "[red]Return to Menu[/]"
 
@@ -83,13 +85,24 @@ namespace First
             Console.Clear();
             AnsiConsole.MarkupLine($"[DarkCyan][steelblue1]{userChar.Name}[/] opens the door to room number [steelblue1]{userChar.RoomsCleared + 1}[/][/]");
             Console.ReadKey();
+
             AnsiConsole.MarkupLine($"[DarkCyan][steelblue1]{userChar.Name}[/] enters the room and the door slams behind.. [/]");
             Console.ReadKey();
-            Npc enemy = new(userChar);
-            AnsiConsole.MarkupLine($"[DarkCyan]A Wild [plum4]{enemy.Name}[/] appears infront of [steelblue1]{userChar.Name}[/][/]\n");
-            Console.ReadKey();
-            Combat.CombatScene(userChar, enemy);
 
+            if (((userChar.RoomsCleared + 1) * 7) % 5 == 0)
+            {
+                Boss boss = new(userChar);
+                AnsiConsole.MarkupLine($"[DarkCyan]A large Boss [red]{boss.Name}[/] appears infront of [steelblue1]{userChar.Name}[/][/]\n");
+                Console.ReadKey();
+                Combat.CombatScene(userChar, boss);
+            }
+            else
+            {
+                Npc enemy = new(userChar);
+                AnsiConsole.MarkupLine($"[DarkCyan]A Wild [plum4]{enemy.Name}[/] appears infront of [steelblue1]{userChar.Name}[/][/]\n");
+                Console.ReadKey();
+                Combat.CombatScene(userChar, enemy);
+            }
 
         }
         public static void ChoosenChar(Character userChar)
@@ -103,7 +116,9 @@ namespace First
         public static void StartGameOrMenu(Character userChar)
         {
 
-            //Console.Clear();
+            Console.Clear();
+            var rule = new Rule($"[steelblue1]{userChar.Name}[/]");
+            AnsiConsole.Write(rule);
             var MenuChoice = AnsiConsole.Prompt(new SelectionPrompt<string>()
 
                 .AddChoices(new[] {"[green]Start Game[/]", "[yellow]Choose Another Character[/]","[red]Delete Character[/]", "[green]Return to Menu[/]"

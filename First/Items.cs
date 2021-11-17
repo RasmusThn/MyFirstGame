@@ -51,7 +51,7 @@ namespace First
             Console.Write($"Which item would you like to use(0 to return): ");
             int choice = int.Parse(Console.ReadLine());//TODO: Try catch
             Console.ResetColor();
-            if (choice == 0 ){  return;}
+            if (choice == 0 || choice > userChar.ItemsList.Count ){  return;}
             if (userChar.ItemsList[choice-1] == DropItems.HealthPotion )
             {
                 Console.WriteLine("You drink a " + DropItems.HealthPotion.ToString());

@@ -25,6 +25,7 @@ namespace First
                 Console.ReadKey();
                 AnsiConsole.MarkupLine($"You start searching the carcase of [plum4]{npc.Name}[/]");
                 Items.SearchEnemy(userChar);
+                if(npc.Class == "Boss") { Items.SearchEnemy(userChar); }//söker 1 gång till om boss
                 DataFiles.DataHandler.SaveToFile();//Sparar till fil här
                 Dialog.WinningDialog(userChar);
             }
@@ -83,7 +84,7 @@ namespace First
                     }
                     break;
                 case "[purple]Open Bag[/]":
-                    {   Console.Clear();
+                    {   //Console.Clear();
                         Items.UsingItems(userChar);
                         AnsiConsole.Clear();
                     }break;

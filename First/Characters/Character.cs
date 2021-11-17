@@ -94,9 +94,10 @@ namespace First
         }
         public void IncreaseExp(Character userChar, Character npc)
         {
+            
             int increase = (npc.Level * 2) + 25;
             userChar.Experience += increase;
-            Console.WriteLine($"You gained {increase} Experience");
+            AnsiConsole.MarkupLine($"You gained [green]{increase} Experience[/]");
             if (userChar.Experience >= ExpReqPerLvl)
             {
                 LevelUp(userChar);

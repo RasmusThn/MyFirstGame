@@ -12,13 +12,13 @@ namespace First.Characters
 
     public Npc(Character character)
     {
-            if (character.Level < 5)
-            {
+            //if (character.Level < 5)
+            //{
                 this.Health = GenerateHealth(character.Level);
                 this.Level = GenerateLvl(character.Level);
                 this.NormalAttack = GenerateAttack(character.Level);
                 this.Name = GenerateName();
-            }            
+            //}            
     }
         public override string ToString()
         {
@@ -32,12 +32,12 @@ namespace First.Characters
         private int GenerateLvl(int lvl)
         {
             Random random = new Random();
-           return random.Next(1, lvl);
+           return random.Next(lvl, lvl + 1);
         }
         private int GenerateHealth(int lvl)
         {
             Random random = new Random();
-            return random.Next(10, lvl * 11);
+            return random.Next(10, lvl * 15);
         }
         private string GenerateName()
         {

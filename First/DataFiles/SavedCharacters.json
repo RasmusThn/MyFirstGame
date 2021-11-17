@@ -1,18 +1,18 @@
 [
   
   {
-    "ItemsList": [ 1, 8, 6, 1, 8 ],
+    "ItemsList": [ 8, 6, 6, 7, 3 ],
     "Name": "Rasmus",
-    "Health": 119,
-    "MaxHealth": 145,
-    "NormalAttack": 9,
-    "Level": 3,
-    "Experience": 112,
-    "ExpReqPerLvl": 150,
-    "SpecialEnergy": 75,
-    "MaxSpecialEnergy": 75,
-    "SpecialPower": 13,
-    "RoomsCleared": 13,
+    "Health": 23,
+    "MaxHealth": 169,
+    "NormalAttack": 18,
+    "Level": 4,
+    "Experience": 66,
+    "ExpReqPerLvl": 175,
+    "SpecialEnergy": 20,
+    "MaxSpecialEnergy": 89,
+    "SpecialPower": 27,
+    "RoomsCleared": 5,
     "Class": "Warrior"
   },
   {
@@ -32,36 +32,6 @@
   },
   {
     "ItemsList": [],
-    "Name": "Rall1",
-    "Health": 80,
-    "MaxHealth": 60,
-    "NormalAttack": 2,
-    "Level": 1,
-    "Experience": 27,
-    "ExpReqPerLvl": 100,
-    "SpecialEnergy": 90,
-    "MaxSpecialEnergy": 100,
-    "SpecialPower": 10,
-    "RoomsCleared": 1,
-    "Class": "Mage"
-  },
-  {
-    "ItemsList": [],
-    "Name": "Hej",
-    "Health": 80,
-    "MaxHealth": 80,
-    "NormalAttack": 3,
-    "Level": 1,
-    "Experience": 0,
-    "ExpReqPerLvl": 100,
-    "SpecialEnergy": 75,
-    "MaxSpecialEnergy": 75,
-    "SpecialPower": 7,
-    "RoomsCleared": 0,
-    "Class": "Archer"
-  },
-  {
-    "ItemsList": [],
     "Name": "rax",
     "Health": 60,
     "MaxHealth": 60,
@@ -74,5 +44,35 @@
     "SpecialPower": 10,
     "RoomsCleared": 0,
     "Class": "Mage"
+  },
+  {
+    "ItemsList": null,
+    "Name": null,
+    "Health": 0,
+    "MaxHealth": 0,
+    "NormalAttack": 0,
+    "Level": 0,
+    "Experience": 0,
+    "ExpReqPerLvl": 0,
+    "SpecialEnergy": 0,
+    "MaxSpecialEnergy": 0,
+    "SpecialPower": 0,
+    "RoomsCleared": 0,
+    "Class": null
+  },
+  {
+    "ItemsList": null,
+    "Name": null,
+    "Health": 0,
+    "MaxHealth": 0,
+    "NormalAttack": 0,
+    "Level": 0,
+    "Experience": 0,
+    "ExpReqPerLvl": 0,
+    "SpecialEnergy": 0,
+    "MaxSpecialEnergy": 0,
+    "SpecialPower": 0,
+    "RoomsCleared": 0,
+    "Class": null
   }
 ]
