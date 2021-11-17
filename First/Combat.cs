@@ -24,7 +24,7 @@ namespace First
                 userChar.RoomsCleared++;
                 Console.ReadKey();
                 AnsiConsole.MarkupLine($"You start searching the carcase of [plum4]{npc.Name}[/]");
-                Items.SearchRoom(userChar);
+                Items.SearchEnemy(userChar);
                 DataFiles.DataHandler.SaveToFile();//Sparar till fil här
                 Dialog.WinningDialog(userChar);
             }

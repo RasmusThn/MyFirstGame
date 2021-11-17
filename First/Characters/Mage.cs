@@ -23,7 +23,6 @@ namespace First.Characters
             this.NormalAttack = 2;
             
         }
-
         public Mage(Character character):base(character)
         {
             
@@ -31,7 +30,7 @@ namespace First.Characters
 
         public override string ToString()
         {
-            return $"{Name}:  Class: Mage | Health: {Health} | Mana: {SpecialEnergy} | SpellPower: {SpecialPower} " +
+            return $"{Name}:  Class: Mage | Health: {Health}/{MaxHealth} | Mana: {SpecialEnergy}/{MaxSpecialEnergy} | SpellPower: {SpecialPower} " +
                 $"| Level: {Level} | Experience: {Experience}/{ExpReqPerLvl}";
         }
         public override void LevelUp(Character userChar)

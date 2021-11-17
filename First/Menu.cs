@@ -21,25 +21,25 @@ namespace First
                 AnsiConsole.Write(rule);               
                 menuChoice = AnsiConsole.Prompt(new SelectionPrompt<string>()
                    
-                   .AddChoices(new[] {"[steelblue1]New Character[/]", "[yellow]Choose Character[/]", "[red]Exit Game[/]"
+                   .AddChoices(new[] {"[steelblue1]New Character[/]", "[yellow]Load Character[/]", "[red]Exit Game[/]"
 
                    }));
 
                 switch (menuChoice)
                 {
                     case "[steelblue1]New Character[/]":
-                        {
+                        {                                                      
                             CreateCharacter();
-                            DataFiles.DataHandler.SaveToFile();
+                            DataFiles.DataHandler.SaveToFile();                          
                         }
                         break;
-                    case "[yellow]Choose Character[/]":
+                    case "[yellow]Load Character[/]":
                         {
                             MenuForCharList();
                         }
                         break;
                     
-                    case "[red]Exit Game[/]": Console.Clear(); break;
+                    case "[red]Exit Game[/]": Console.Clear(); Environment.Exit(0); break;
                     default:
                         break;
                 }
@@ -47,8 +47,11 @@ namespace First
         }
         public static void CreateCharacter()
         {
-            string name = AnsiConsole.Ask<string>("[green]Enter your name:[/]");
             Console.Clear();
+            var rule = new Rule("[steelblue1] Create Character [/]");
+            AnsiConsole.Write(rule);
+            string name = AnsiConsole.Ask<string>("[green]Enter your name:[/]");
+            //Console.Clear();
             var charChoice = AnsiConsole.Prompt(new SelectionPrompt<string>()
                 .Title($"[green]Choose a Class for [/][green]{name}[/]")
                 .AddChoices(new[] {"[red]Warrior[/]", "[yellow]Archer[/]", "[green]Mage[/]"
@@ -59,6 +62,7 @@ namespace First
             {
                 case "[red]Warrior[/]":
                     {
+                        
                         new Warrior(name);
 
                     }
@@ -93,7 +97,9 @@ namespace First
         }
         public static void MenuForCharList()
         {
-            Console.Clear();
+            Console.Clear();          
+            var rule = new Rule("[yellow] Load Character [/]");
+            AnsiConsole.Write(rule);
             string name0 = DisplayCharacterList(0);
             string name1 = DisplayCharacterList(1);
             string name2 = DisplayCharacterList(2);

@@ -33,7 +33,7 @@ namespace First
                 x++;
             }
         }
-        public static void SearchRoom(Character userChar)
+        public static void SearchEnemy(Character userChar)
         {
             
             Random rand = new Random();
@@ -51,7 +51,7 @@ namespace First
             Console.Write($"Which item would you like to use(0 to return): ");
             int choice = int.Parse(Console.ReadLine());//TODO: Try catch
             Console.ResetColor();
-            if (choice == 0 ){ Console.Clear(); return;}
+            if (choice == 0 ){  return;}
             if (userChar.ItemsList[choice-1] == DropItems.HealthPotion )
             {
                 Console.WriteLine("You drink a " + DropItems.HealthPotion.ToString());
@@ -80,8 +80,9 @@ namespace First
             else if (userChar.ItemsList[choice - 1] == DropItems.GearUpgrade)
             {
                 Console.WriteLine("You use the " + DropItems.GearUpgrade.ToString());
-                Console.WriteLine("Increasing your health by 20");
-                userChar.Health += 20;
+                Console.WriteLine("Increasing your max health by 20");
+                userChar.MaxHealth += 20;
+
             }
             else
             {

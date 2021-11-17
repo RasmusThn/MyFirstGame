@@ -22,7 +22,7 @@ namespace First.Characters
     }
         public override string ToString()
         {
-            return $"Name: {Name} | Health: {Health} | Level: {Level} | AttackPower: {NormalAttack}";
+            return $"{Name}: Level: {Level} | Health: {Health} | AttackPower: {NormalAttack}";
         }
         public static int GenerateAttack(int lvl)
         {               

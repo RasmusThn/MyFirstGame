@@ -34,7 +34,7 @@ namespace First.Characters
 
         public override string ToString()
         {
-            return $"Class: Archer | Health: {Health} | Focus: {SpecialEnergy} | RangedAttackPower: {SpecialPower}" +
+            return $"Class: Archer | Health: {Health}/{MaxHealth} | Focus: {SpecialEnergy}/{MaxSpecialEnergy} | RangedAttackPower: {SpecialPower}" +
                 $" | Level: {Level} | Experience: {Experience}/{ExpReqPerLvl}";
         }
         public override void LevelUp(Character userChar)

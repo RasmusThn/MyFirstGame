@@ -31,7 +31,7 @@ namespace First
 
         public override string ToString()
         {
-            return $"{Name}:  Level: {Level} | Health: {Health} | Rage: {SpecialEnergy} | AttackPower: {SpecialPower}" +
+            return $"{Name}:  Level: {Level} | Health: {Health}/{MaxHealth} | Rage: {SpecialEnergy}/{MaxSpecialEnergy} | AttackPower: {SpecialPower}" +
                 $" | Experience: {Experience}/{ExpReqPerLvl}";
         }
 

@@ -35,10 +35,12 @@ namespace First
         {
             while (true)
             {
+                Console.Clear();
+
                 var MenuChoice = AnsiConsole.Prompt(new SelectionPrompt<string>()
 
                     .AddChoices(new[] {"[green]Continue[/]", "[orange4_1]Show Stats[/]",
-                    "[yellow]Bag[/]", "[green]Return to Menu[/]"
+                    "[yellow]Bag[/]", "[red]Return to Menu[/]"
 
                     }));
 
@@ -53,16 +55,19 @@ namespace First
                         break;
                     case "[orange4_1]Show Stats[/]":
                         {
-                            Console.WriteLine(userChar);
+                            Console.Clear();
+                            AnsiConsole.MarkupLine($"[red]Your stats are:[/][steelblue1] {userChar}[/]");
+                            Console.ReadKey();
                         }
                         break;
                     case "[yellow]Bag[/]":
                         {
-                            //Items.ShowBag(userChar);
+                            Console.Clear();
                             Items.UsingItems(userChar);
+                            Console.ReadKey();
                         }
                         break;
-                    case "[green]Return to Menu[/]":
+                    case "[red]Return to Menu[/]":
                         {
                             Menu.ShowMenu();
                         }
@@ -91,7 +96,7 @@ namespace First
         {
             AnsiConsole.MarkupLine($"[red]You have choosen[/][steelblue1] {userChar.Name}[/]");
             AnsiConsole.MarkupLine($"[red]Your stats are:[/][steelblue1] {userChar}[/]");
-            Console.WriteLine("\n\n");
+            Console.WriteLine("\n");
             StartGameOrMenu(userChar);
 
         }

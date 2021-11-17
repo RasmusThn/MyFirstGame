@@ -1,1 +1,78 @@
-[{"ItemsList":[1,7,8,9,2],"Name":"Rasmus","Health":145,"MaxHealth":145,"NormalAttack":9,"Level":3,"Experience":0,"ExpReqPerLvl":150,"SpecialEnergy":75,"MaxSpecialEnergy":75,"SpecialPower":13,"RoomsCleared":9,"Class":"Warrior"},{"ItemsList":[6,7],"Name":"Ralle","Health":60,"MaxHealth":60,"NormalAttack":2,"Level":1,"Experience":54,"ExpReqPerLvl":100,"SpecialEnergy":80,"MaxSpecialEnergy":100,"SpecialPower":10,"RoomsCleared":2,"Class":"Mage"},{"ItemsList":null,"Name":null,"Health":0,"MaxHealth":0,"NormalAttack":0,"Level":0,"Experience":0,"ExpReqPerLvl":0,"SpecialEnergy":0,"MaxSpecialEnergy":0,"SpecialPower":0,"RoomsCleared":0,"Class":null},{"ItemsList":null,"Name":null,"Health":0,"MaxHealth":0,"NormalAttack":0,"Level":0,"Experience":0,"ExpReqPerLvl":0,"SpecialEnergy":0,"MaxSpecialEnergy":0,"SpecialPower":0,"RoomsCleared":0,"Class":null},{"ItemsList":null,"Name":null,"Health":0,"MaxHealth":0,"NormalAttack":0,"Level":0,"Experience":0,"ExpReqPerLvl":0,"SpecialEnergy":0,"MaxSpecialEnergy":0,"SpecialPower":0,"RoomsCleared":0,"Class":null}]
+[
+  
+  {
+    "ItemsList": [ 1, 8, 6, 1, 8 ],
+    "Name": "Rasmus",
+    "Health": 119,
+    "MaxHealth": 145,
+    "NormalAttack": 9,
+    "Level": 3,
+    "Experience": 112,
+    "ExpReqPerLvl": 150,
+    "SpecialEnergy": 75,
+    "MaxSpecialEnergy": 75,
+    "SpecialPower": 13,
+    "RoomsCleared": 13,
+    "Class": "Warrior"
+  },
+  {
+    "ItemsList": [ 6, 7 ],
+    "Name": "Ralle",
+    "Health": 60,
+    "MaxHealth": 60,
+    "NormalAttack": 2,
+    "Level": 1,
+    "Experience": 54,
+    "ExpReqPerLvl": 100,
+    "SpecialEnergy": 80,
+    "MaxSpecialEnergy": 100,
+    "SpecialPower": 10,
+    "RoomsCleared": 2,
+    "Class": "Mage"
+  },
+  {
+    "ItemsList": [],
+    "Name": "Rall1",
+    "Health": 80,
+    "MaxHealth": 60,
+    "NormalAttack": 2,
+    "Level": 1,
+    "Experience": 27,
+    "ExpReqPerLvl": 100,
+    "SpecialEnergy": 90,
+    "MaxSpecialEnergy": 100,
+    "SpecialPower": 10,
+    "RoomsCleared": 1,
+    "Class": "Mage"
+  },
+  {
+    "ItemsList": [],
+    "Name": "Hej",
+    "Health": 80,
+    "MaxHealth": 80,
+    "NormalAttack": 3,
+    "Level": 1,
+    "Experience": 0,
+    "ExpReqPerLvl": 100,
+    "SpecialEnergy": 75,
+    "MaxSpecialEnergy": 75,
+    "SpecialPower": 7,
+    "RoomsCleared": 0,
+    "Class": "Archer"
+  },
+  {
+    "ItemsList": [],
+    "Name": "rax",
+    "Health": 60,
+    "MaxHealth": 60,
+    "NormalAttack": 2,
+    "Level": 1,
+    "Experience": 0,
+    "ExpReqPerLvl": 100,
+    "SpecialEnergy": 100,
+    "MaxSpecialEnergy": 100,
+    "SpecialPower": 10,
+    "RoomsCleared": 0,
+    "Class": "Mage"
+  }
+]
