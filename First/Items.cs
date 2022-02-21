@@ -49,7 +49,7 @@ namespace First
             Console.WriteLine($"You have {userChar.ItemsList.Count} items in your bag.");          
             ShowBag(userChar);
             Console.Write($"Which item would you like to use(0 to return): ");
-            int choice = int.Parse(Console.ReadLine());//TODO: Try catch
+            int choice = int.Parse(Console.ReadLine());// TODO: Try catch
             Console.ResetColor();
             if (choice == 0 || choice > userChar.ItemsList.Count ){  return;}
             if (userChar.ItemsList[choice-1] == DropItems.HealthPotion )

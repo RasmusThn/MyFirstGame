@@ -47,7 +47,7 @@ namespace First
         }
         public static void CreateCharacter()
         {
-            Console.Clear();
+            Console.Clear();      
             var rule = new Rule("[steelblue1] Create Character [/]");
             AnsiConsole.Write(rule);
             string name = AnsiConsole.Ask<string>("[green]Enter your name:[/]");
